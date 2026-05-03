@@ -1,1 +1,123 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barzy Center</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 50%, #25D366 100%); 
+            min-height: 100vh; 
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container { 
+            background: rgba(255,255,255,0.1); 
+            backdrop-filter: blur(25px); 
+            border: 1px solid rgba(255,255,255,0.2); 
+            border-radius: 25px; 
+            padding: 3.5rem 3rem; 
+            max-width: 550px; 
+            width: 100%; 
+            box-shadow: 0 35px 90px rgba(37,211,102,0.3); 
+            text-align: center;
+        }
+        
+        .logo { 
+            font-size: 4rem; 
+            background: linear-gradient(45deg, #ffffff, #f0fdf4); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text; 
+            margin-bottom: 1.2rem; 
+            font-weight: 900;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+        }
+        
+        .title { 
+            color: white; 
+            font-size: 1.8rem; 
+            margin-bottom: 3rem; 
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .links-list { list-style: none; }
+        .links-list li { margin-bottom: 2rem; }
+        
+        .link-item { 
+            display: block; 
+            background: rgba(255,255,255,0.95); 
+            padding: 2rem 2.5rem; 
+            border-radius: 20px; 
+            text-decoration: none; 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            transition: all 0.4s ease-out; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2); 
+            position: relative;
+            border: 3px solid transparent;
+        }
+        
+        .link-item:hover { 
+            transform: translateY(-15px) scale(1.05); 
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4); 
+            border-color: rgba(255,255,255,0.5);
+        }
+        
+        .whatsapp { color: #25D366; }
+        .telegram { color: #0088cc; }
+        .viber { color: #7360F2; }
+        
+        .icons { font-size: 1.8rem; margin-right: 1.2rem; display: inline-block; }
+        
+        .footer { 
+            margin-top: 3rem; 
+            color: rgba(255,255,255,0.9); 
+            font-size: 1.4rem; 
+            font-weight: 800; 
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            .container { padding: 2.5rem 2rem; margin: 1rem; }
+            .logo { font-size: 3.2rem; }
+            .link-item { font-size: 1.3rem; padding: 1.8rem 2rem; }
+            .title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🍀 Barzy Center</div>
+        <div class="title">Connect Instantly</div>
+        
+        <ul class="links-list">
+            <li>
+                <a href="https://wa.me/qr/U36GUTLYBWS3H1" class="link-item whatsapp" target="_blank">
+                    <span class="icons">💬</span>WhatsApp
+                </a>
+            </li>
+            <li>
+                <a href="https://t.me/BARZICENTER" class="link-item telegram" target="_blank">
+                    <span class="icons">✈️</span>Telegram
+                </a>
+            </li>
+            <li>
+                <a href="viber://add?number=9647502120002" class="link-item viber" target="_blank">
+                    <span class="icons">💜</span>Viber
+                </a>
+            </li>
+        </ul>
+        
+        <div class="footer">Since 2014</div>
+    </div>
+</body>
+</html>

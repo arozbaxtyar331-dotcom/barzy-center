@@ -4,99 +4,200 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barzy Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --emerald-950: #061912;
+            --emerald-900: #0b2419;
+            --emerald-800: #123325;
+            --emerald-700: #184532;
+            --emerald-500: #25D366;
+            --emerald-300: #9ce7ba;
+            --ivory: #f7f3ea;
+            --gold: #c7a85b;
+            --glass: rgba(255, 255, 255, 0.08);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 50%, #25D366 100%); 
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background:
+                radial-gradient(circle at top, rgba(156, 231, 186, 0.18), transparent 35%),
+                radial-gradient(circle at 80% 20%, rgba(199, 168, 91, 0.12), transparent 25%),
+                linear-gradient(160deg, var(--emerald-950) 0%, var(--emerald-900) 45%, var(--emerald-800) 100%);
             min-height: 100vh; 
             padding: 2rem 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--ivory);
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            inset: auto;
+            border-radius: 50%;
+            filter: blur(18px);
+            pointer-events: none;
+        }
+
+        body::before {
+            width: 22rem;
+            height: 22rem;
+            top: -8rem;
+            left: -8rem;
+            background: rgba(37, 211, 102, 0.12);
+        }
+
+        body::after {
+            width: 18rem;
+            height: 18rem;
+            right: -6rem;
+            bottom: -5rem;
+            background: rgba(199, 168, 91, 0.12);
         }
         
         .container { 
-            background: rgba(255,255,255,0.1); 
-            backdrop-filter: blur(25px); 
-            border: 1px solid rgba(255,255,255,0.2); 
-            border-radius: 25px; 
-            padding: 3.5rem 3rem; 
-            max-width: 550px; 
+            position: relative;
+            background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04)); 
+            backdrop-filter: blur(26px); 
+            border: 1px solid rgba(255,255,255,0.14); 
+            border-radius: 30px; 
+            padding: 3.5rem 3rem 3rem; 
+            max-width: 560px; 
             width: 100%; 
-            box-shadow: 0 35px 90px rgba(37,211,102,0.3); 
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.45),
+                inset 0 1px 0 rgba(255,255,255,0.12);
             text-align: center;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            inset: 1rem;
+            border-radius: 24px;
+            border: 1px solid rgba(199, 168, 91, 0.18);
+            pointer-events: none;
         }
         
         .logo { 
-            font-size: 4rem; 
-            background: linear-gradient(45deg, #ffffff, #f0fdf4); 
+            font-size: 3.4rem; 
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: linear-gradient(180deg, #ffffff 0%, #f5ead0 45%, var(--gold) 100%); 
             -webkit-background-clip: text; 
             -webkit-text-fill-color: transparent; 
             background-clip: text; 
-            margin-bottom: 1.2rem; 
-            font-weight: 900;
-            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+            margin-bottom: 0.8rem; 
+            font-weight: 700;
+            text-shadow: 0 0 24px rgba(199,168,91,0.18);
         }
         
         .title { 
-            color: white; 
-            font-size: 1.8rem; 
-            margin-bottom: 3rem; 
-            font-weight: 700;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            color: rgba(247, 243, 234, 0.86); 
+            font-size: 1rem; 
+            margin-bottom: 2.4rem; 
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
         }
         
         .links-list { list-style: none; }
-        .links-list li { margin-bottom: 2rem; }
+        .links-list li { margin-bottom: 1.1rem; }
         
         .link-item { 
             display: block; 
-            background: rgba(255,255,255,0.95); 
-            padding: 2rem 2.5rem; 
-            border-radius: 20px; 
+            background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(244, 240, 230, 0.96)); 
+            padding: 1.4rem 1.6rem; 
+            border-radius: 18px; 
             text-decoration: none; 
-            font-size: 1.5rem; 
-            font-weight: 800; 
-            transition: all 0.4s ease-out; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2); 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            letter-spacing: 0.02em;
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease; 
+            box-shadow: 0 14px 32px rgba(0,0,0,0.18); 
             position: relative;
-            border: 3px solid transparent;
+            border: 1px solid rgba(199, 168, 91, 0.18);
+            color: var(--emerald-900);
+            overflow: hidden;
         }
         
         .link-item:hover { 
-            transform: translateY(-15px) scale(1.05); 
-            box-shadow: 0 40px 80px rgba(0,0,0,0.4); 
-            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-6px); 
+            box-shadow: 0 22px 40px rgba(0,0,0,0.28); 
+            border-color: rgba(199, 168, 91, 0.38);
+            background: linear-gradient(180deg, #fffdf8, #f2ebdc);
+        }
+
+        .link-item::after {
+            content: '';
+            position: absolute;
+            inset: auto 1.1rem 0.7rem auto;
+            width: 4.5rem;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(199, 168, 91, 0.95));
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: opacity 0.28s ease, transform 0.28s ease;
+        }
+
+        .link-item:hover::after {
+            opacity: 1;
+            transform: translateX(0);
         }
         
-        .whatsapp { color: #25D366; }
-        .telegram { color: #0088cc; }
-        .viber { color: #7360F2; }
+        .whatsapp { color: #0f7a47; }
+        .telegram { color: #0d5e86; }
+        .viber { color: #6f4aa8; }
         
-        .icons { font-size: 1.8rem; margin-right: 1.2rem; display: inline-block; }
+        .icons { font-size: 1.35rem; margin-right: 0.9rem; display: inline-block; }
         
         .footer { 
-            margin-top: 3rem; 
-            color: rgba(255,255,255,0.9); 
-            font-size: 1.4rem; 
-            font-weight: 800; 
-            letter-spacing: 2px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-top: 2.5rem; 
+            color: rgba(247,243,234,0.82); 
+            font-size: 0.92rem; 
+            font-weight: 600; 
+            letter-spacing: 0.34em;
+            text-transform: uppercase;
+            position: relative;
+            padding-top: 1.2rem;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 72px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(199, 168, 91, 0.9), transparent);
         }
         
         @media (max-width: 600px) {
             body { padding: 1rem; }
-            .container { padding: 2.5rem 2rem; margin: 1rem; }
-            .logo { font-size: 3.2rem; }
-            .link-item { font-size: 1.3rem; padding: 1.8rem 2rem; }
-            .title { font-size: 1.5rem; }
+            .container { padding: 2.3rem 1.2rem 2rem; margin: 0.5rem; border-radius: 24px; }
+            .container::before { inset: 0.7rem; border-radius: 20px; }
+            .logo { font-size: 2.7rem; }
+            .link-item { font-size: 1rem; padding: 1.2rem 1.2rem; }
+            .title { font-size: 0.82rem; letter-spacing: 0.24em; margin-bottom: 2rem; }
+            .footer { font-size: 0.78rem; letter-spacing: 0.26em; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">🍀 Barzy Center</div>
+        <div class="logo">Barzy Center</div>
         <div class="title">Connect Instantly</div>
         
         <ul class="links-list">
